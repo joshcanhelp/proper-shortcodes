@@ -78,11 +78,6 @@ Displays a list of links to blog posts, ordered from newest to oldest. Attribute
 - "offset" set to a whole number will determine the number of posts to skip from the beginning (default = "0")
 - "category" set to a post category ID number or a category slug (default = none)
 
-== Screenshots ==
-
-1. Pull quote in action
-2. Child pages, Documents, and Post list
-
 == Installation ==
 
 Activating the Proper Contact Form plugin is just like any other plugin. If you've uploaded the plugin package to your server already, skip to step 5 below:
