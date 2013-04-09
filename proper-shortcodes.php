@@ -252,3 +252,35 @@ function proper_shortcode_post_list( $atts ) {
 	echo $output;
 }
 add_shortcode('p_post_list', 'proper_shortcode_post_list');
+
+/**
+ * Shows all posts organized by month
+ */
+
+function proper_shortcode_post_archive () {
+	$all_posts = get_posts( array ( 'numberposts' => -1 ) );
+
+	if ( !empty( $all_posts ) ) :
+
+		$date = $output = '';
+		foreach ( $all_posts as $a_post ) :
+
+			$a_date = get_the_time( 'F Y', $a_post );
+			if ( $a_date !== $date ) {
+				$output .= '<h2>' . $a_date . '</h2>';
+				$date = $a_date;
+			}
+			$output .= '
+			<p>
+				<a href="' . get_permalink( $a_post->ID ) . '">'
+				. $a_post->post_title . '</a>
+			<p>';
+
+		endforeach;
+
+		return $output;
+
+	endif;
+}
+
+add_shortcode( 'p_post_archive', 'proper_shortcode_post_archive' );
