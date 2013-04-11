@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: PROPER Shortcodes
-Plugin URI: http://theproperweb.com
+Plugin URI: http://theprTRUEweb.com
 Description: A collection of shortcodes that has proven useful
 Version: 0.1
 Author: PROPER Web Development
@@ -252,3 +252,85 @@ function proper_shortcode_post_list( $atts ) {
 	echo $output;
 }
 add_shortcode('p_post_list', 'proper_shortcode_post_list');
+
+/**
+ * Shows all posts organized by month
+ */
+
+function proper_shortcode_post_archive () {
+	$all_posts = get_posts( array ( 'numberposts' => -1 ) );
+
+	if ( !empty( $all_posts ) ) :
+
+		$date = $output = '';
+		foreach ( $all_posts as $a_post ) :
+
+			$a_date = get_the_time( 'F Y', $a_post );
+			if ( $a_date !== $date ) {
+				$output .= '<h2>' . $a_date . '</h2>';
+				$date = $a_date;
+			}
+			$output .= '
+			<p>
+				<a href="' . get_permalink( $a_post->ID ) . '">'
+				. $a_post->post_title . '</a>
+			<p>';
+
+		endforeach;
+
+		return $output;
+
+	endif;
+}
+
+add_shortcode( 'p_post_archive', 'proper_shortcode_post_archive' );
+
+/**
+ * Outputs a sitemap of posts and pages
+ */
+
+function proper_shortcode_sitemap ( $atts ) {
+
+	$types = get_post_types();
+	$use_types = array();
+	$output = '';
+
+	foreach ( $types as $type ) :
+		// Ignore indicated post types
+		if ( isset($atts[$type]) && $atts[$type] != 'no' ) continue;
+		// Ignore nav menu items
+		if ( $type == 'nav_menu_item' ) continue;
+		$type_object = get_post_type_object($type);
+		// Ignore non-public items
+		if ( $type_object->public != 1 ) continue;
+		$use_types[] = $type_object;
+	endforeach;
+
+	if ( empty( $use_types ) ) return;
+
+	$output .= '<div class="proper_sitemap">';
+	foreach ( $use_types as $use_type ) :
+		$post_list = get_posts( array(
+			'posts_per_page' => -1,
+			'post_type' => $use_type->name
+		));
+
+		if ( empty( $post_list ) ) continue;
+
+		$output .= '
+		<h2>' . $use_type->labels->all_items . '</h2>
+		<ul class="' . $use_type->name . '_link_list">';
+		foreach ( $post_list as $a_post ) :
+			$output .= '
+			<li><a href="'
+			. get_permalink( $a_post->ID ) . '">'
+			. apply_filters('the_title', $a_post->post_title ) . '</a></li>';
+		endforeach;
+		$output .= '</ul>';
+	endforeach;
+	$output .= '</div>';
+
+	return $output;
+}
+
+add_shortcode( 'p_sitemap', 'proper_shortcode_sitemap' );
