@@ -86,7 +86,8 @@ Displays all published posts in the system organized by the month they were publ
 
 Outputs a human-readable sitemap with links. Attributes:
 
-- Set a post type to "no" to not display that type. Core post types displayed are "post," "page," and "attachment"
+- Set a post type to "hide" (or anything) to not display that type. Core post types displayed are "post," "page,
+" and "attachment"
 
 == Screenshots ==
 
