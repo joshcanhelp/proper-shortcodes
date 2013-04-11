@@ -78,6 +78,16 @@ Displays a list of links to blog posts, ordered from newest to oldest. Attribute
 - "offset" set to a whole number will determine the number of posts to skip from the beginning (default = "0")
 - "category" set to a post category ID number or a category slug (default = none)
 
+**[p_post_archive]**
+
+Displays all published posts in the system organized by the month they were published
+
+**[p_sitemap]**
+
+Outputs a human-readable sitemap with links. Attributes:
+
+- Set a post type to "no" to not display that type. Core post types displayed are "post," "page," and "attachment"
+
 == Screenshots ==
 
 1. Pull quote in action
@@ -85,7 +95,7 @@ Displays a list of links to blog posts, ordered from newest to oldest. Attribute
 
 == Installation ==
 
-Activating the Proper Contact Form plugin is just like any other plugin. If you've uploaded the plugin package to your server already, skip to step 5 below:
+Activating the Proper Contact Form plugin is just like any other plugin. If you've uploaded the plugin package to your server already, skip to step 3 below:
 
 1. In your WordPress admin, go to **Plugins > Add New**
 2. In the Search field type "proper shortcodes"
@@ -94,6 +104,9 @@ Activating the Proper Contact Form plugin is just like any other plugin. If you'
 5. The shortcodes have been added to WordPress.  Simply add them to the page content to begin using them.
 
 == Changelog ==
+
+= 0.2 =
+* Added [p_post_archive] and [p_sitemap]
 
 = 0.1 =
 * First development
