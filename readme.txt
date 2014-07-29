@@ -2,8 +2,8 @@
 Contributors: properwp, Hason7, joshcanhelp
 Tags: shortcodes
 Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 0.2
+Tested up to: 4.0
+Stable tag: 0.3
 License: GPLv2 or later
 
 A collection of useful shortcodes that can be used with any theme. 
@@ -17,8 +17,11 @@ This group is just the beginning; we'll be adding new shortcodes and shortcode-r
 This plugin will add all of the following shortcodes:
 
 **[p_site_url]**
+**[site_url]**
+**[p_home_url]**
+**[home_url]**
 
-Displays the site url. Useful for adding links to pages on the site without hard-coding in the domain. 
+Displays the site URL or home URL. Useful for adding links to pages on the site without hard-coding in the domain.
 
 **[p_tagline]**
 
@@ -88,6 +91,12 @@ Outputs a human-readable sitemap with links. Attributes:
 
 - Set a post type to "hide" (or anything) to not display that type. Core post types displayed are "post," "page,
 " and "attachment"
+
+**[hr]**
+
+Outputs an <hr> tag with styles, if desired
+
+- "style" is straight CSS that's added to an inline attribute
 
 == Screenshots ==
 

@@ -2,9 +2,9 @@
 
 /*
 Plugin Name: PROPER Shortcodes
-Plugin URI: http://theprTRUEweb.com
-Description: A collection of shortcodes that has proven useful
-Version: 0.2
+Plugin URI: http://theproperweb.com/product/proper-shortcodes/
+Description: A collection of shortcodes that have proven useful
+Version: 0.3
 Author: PROPER Web Development
 Author URI: http://theproperweb.com
 License: GPL2
@@ -17,12 +17,20 @@ License: GPL2
  */
 
 /* Display base url of WordPress installation
- * @return: Returns WP function site_url()
+ * @return: Returns WP function site_url() or home_url()
  */
 function proper_shortcode_site_url() {
 	return site_url();
 }
+add_shortcode('site_url', 'proper_shortcode_site_url');
 add_shortcode('p_site_url', 'proper_shortcode_site_url');
+
+function proper_shortcode_home_url() {
+	return home_url();
+}
+
+add_shortcode( 'p_home_url', 'proper_shortcode_home_url' );
+add_shortcode( 'home_url', 'proper_shortcode_home_url' );
 
 
 /* Display blog's tagline
@@ -334,3 +342,18 @@ function proper_shortcode_sitemap ( $atts ) {
 }
 
 add_shortcode( 'p_sitemap', 'proper_shortcode_sitemap' );
+
+
+/**
+ * Outputs a simple <hr> tag with styles, if desired
+ *
+ */
+
+function proper_shortcode_hr( $atts ) {
+
+	$style = ! empty( $atts['style'] ) ? ' style="' . esc_attr( $atts['style'] ) . '"' : '';
+	return '<hr' . $style . '>';
+}
+
+add_shortcode( 'hr', 'proper_shortcode_hr' );
+
