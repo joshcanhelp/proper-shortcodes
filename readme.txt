@@ -2,7 +2,7 @@
 Contributors: properwp, Hason7, joshcanhelp
 Tags: shortcodes
 Requires at least: 3.0
-Tested up to: 3.5.1
+Tested up to: 3.9.1
 Stable tag: 0.2
 License: GPLv2 or later
 
