@@ -3,7 +3,7 @@ Contributors: properwp, Hason7, joshcanhelp
 Tags: shortcodes
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 
 A collection of useful shortcodes that can be used with any theme. 
@@ -86,7 +86,8 @@ Displays all published posts in the system organized by the month they were publ
 
 Outputs a human-readable sitemap with links. Attributes:
 
-- Set a post type to "no" to not display that type. Core post types displayed are "post," "page," and "attachment"
+- Set a post type to "hide" (or anything) to not display that type. Core post types displayed are "post," "page,
+" and "attachment"
 
 == Screenshots ==
 

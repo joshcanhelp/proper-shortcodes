@@ -2,9 +2,9 @@
 
 /*
 Plugin Name: PROPER Shortcodes
-Plugin URI: http://theprTRUEweb.com
+Plugin URI: http://theproperweb.com
 Description: A collection of shortcodes that has proven useful
-Version: 0.1
+Version: 0.2
 Author: PROPER Web Development
 Author URI: http://theproperweb.com
 License: GPL2
