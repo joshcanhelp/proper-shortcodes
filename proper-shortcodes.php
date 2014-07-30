@@ -343,6 +343,7 @@ function proper_shortcode_sitemap ( $atts ) {
 
 add_shortcode( 'p_sitemap', 'proper_shortcode_sitemap' );
 
+
 /**
  * Outputs a simple <hr> tag with styles, if desired
  *
@@ -355,3 +356,4 @@ function proper_shortcode_hr( $atts ) {
 }
 
 add_shortcode( 'hr', 'proper_shortcode_hr' );
+
