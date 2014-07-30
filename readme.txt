@@ -16,10 +16,7 @@ This group is just the beginning; we'll be adding new shortcodes and shortcode-r
 
 This plugin will add all of the following shortcodes:
 
-**[p_site_url]**
-**[site_url]**
-**[p_home_url]**
-**[home_url]**
+**[p_site_url]** **[site_url]** **[p_home_url]** **[home_url]**
 
 Displays the site URL or home URL. Useful for adding links to pages on the site without hard-coding in the domain.
 
@@ -97,11 +94,6 @@ Outputs a human-readable sitemap with links. Attributes:
 Outputs an <hr> tag with styles, if desired
 
 - "style" is straight CSS that's added to an inline attribute
-
-== Screenshots ==
-
-1. Pull quote in action
-2. Child pages, Documents, and Post list
 
 == Installation ==
 
