@@ -22,6 +22,7 @@ License: GPL2
 function proper_shortcode_site_url() {
 	return site_url();
 }
+
 add_shortcode('site_url', 'proper_shortcode_site_url');
 add_shortcode('p_site_url', 'proper_shortcode_site_url');
 
@@ -29,8 +30,8 @@ function proper_shortcode_home_url() {
 	return home_url();
 }
 
-add_shortcode( 'p_home_url', 'proper_shortcode_home_url' );
 add_shortcode( 'home_url', 'proper_shortcode_home_url' );
+add_shortcode( 'p_home_url', 'proper_shortcode_home_url' );
 
 
 /* Display blog's tagline
