@@ -115,8 +115,13 @@ Activating the Proper Contact Form plugin is just like any other plugin. If you'
 
 == Changelog ==
 
+= 0.3 =
+* Added [home_url]
+* Added [hr]
+
 = 0.2 =
-* Added [p_post_archive] and [p_sitemap]
+* Added [p_post_archive]
+* Added [p_sitemap]
 
 = 0.1 =
 * First development
