@@ -218,47 +218,59 @@ add_shortcode('p_list_subpages', 'proper_shortcode_list_child_pages');
  */
 function proper_shortcode_post_list( $atts ) {
 
+	$output = '';
+
 	// Merge defaults with incoming shortcode atts
 	$args = shortcode_atts( array (
 			'posts_per_page' => get_option('posts_per_page'),
-			'offset' => ''
+			'offset' => '',
+			'category' => '',
+			'tag' => ''
 	), $atts );
 
 	if ( !empty( $atts['category'] ) ) {
 		// If the passed category is a number, set the category ID
 		if ( is_numeric( $atts['category'] ) ) {
 			$args['cat'] = intval( $atts['category'] );
-		// Otherwise, assume it's a name
+		// Otherwise, assume it's a slug
 		} else {
 			$args['category_name'] = $atts['category'];
 		}
-		unset( $args['category'] );
+		unset($args['category']);
+	}
+
+	if ( !empty( $atts['tag'] ) ) {
+		// If the passed tag is a number, set the category ID
+		if ( is_numeric( $atts['tag'] ) ) {
+			$args['tag_id'] = intval( $atts['tag'] );
+			unset( $args['tag'] );
+		// Otherwise, assume it's a slug
+		} else {
+			$args['tag'] = $atts['tag'];
+		}
 	}
 
 	$posts_disp = get_posts($args);
-	$output = '<p></p><strong>No posts to show...</strong></p>';
 
-	if (!empty($posts_disp)) :
+	if ( empty( $posts_disp ) ) {
+		return $output;
+	}
 
-		$output = '
-		<ul clasa="post_link_list">';
+	$output .= '<ul class="post_link_list">';
 
-		foreach ($posts_disp as $post_it) :
+	foreach ($posts_disp as $post_it) :
 
-			$the_link = get_permalink( $post_it->ID );
-			$link_insert = '';
+		$the_link = esc_url( get_permalink( $post_it->ID ) );
+		$the_title = apply_filters( 'the_title', sanitize_text_field( $post_it->post_title ) );
 
-			$output .= '
-			<li><a href="' . $the_link . '"' . $link_insert . '>' . apply_filters('the_title', $post_it->post_title) . '</a></li>
-			';
+		$output .= '<li><a href="' . $the_link . '">' . $the_title . '</a></li>';
 
-		endforeach;
+	endforeach;
 
-		$output .= '
-		</ul>';
-	endif;
+	$output .= '</ul>';
 
-	echo $output;
+	return $output;
+
 }
 add_shortcode('p_post_list', 'proper_shortcode_post_list');
 
